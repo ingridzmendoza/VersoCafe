@@ -1,0 +1,131 @@
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.hero {
+    background-color: rgba(111, 78, 55, 0.08);
+}
+
+.navbar-brand {
+    color: var(--accent);
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-title {
+    font-weight: 600;
+}
+
+.price {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+button.nav-link {
+    cursor: pointer;
+}
+
+:root {
+    --brand-bg: #f7f3ee;
+    --brand-surface: #ffffff;
+    --brand-primary: #6f4e37;
+    --brand-accent: #3a5a40;
+    --brand-text: #2e2e2e;
+    --brand-muted: #7a7a7a;
+
+    --radius: 1rem;
+    --shadow-soft: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    background-color: var(--brand-bg);
+    color: var(--brand-text);
+    font-family: "Inter", system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.navbar-brand {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 0.3px;
+}
+
+.navbar {
+    background-color: var(--brand-surface);
+    box-shadow: var(--shadow-soft);
+}
+
+.navbar-brand {
+    color: var(--brand-primary);
+}
+
+.nav-link {
+    color: var(--brand-muted);
+}
+
+.nav-link.active {
+    color: var(--brand-primary);
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+    color: var(--brand-muted);
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--brand-primary);
+    border-bottom: 2px solid var(--brand-primary);
+}
+
+.card {
+    border: none;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.card-img-top {
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    height: 220px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.05rem;
+}
+
+.price {
+    font-weight: 600;
+    color: var(--brand-primary);
+}
+
+.btn-outline-primary {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--brand-primary);
+    color: #fff;
+}
+
+.btn-outline-danger {
+    border-radius: 999px;
+}
+
+.text-muted {
+    color: var(--brand-muted) !important;
+}
