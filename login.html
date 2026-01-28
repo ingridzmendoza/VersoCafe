@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Verso Café</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./assets/icons/Favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="d-flex align-items-center justify-content-center vh-100 login-bg">
+        <form id="login-form" class="card shadow-lg p-4 border-0" style="max-width: 420px; width: 100%;">
+
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-2 text-white">Bienvenido</h2>
+                <p class="fs-5 text-white">Accede a tu cuenta</p>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="email" id="email" class="form-control" placeholder="name@example.com" required />
+                <label for="email">Correo electrónico</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="password" id="password" class="form-control" placeholder="Contraseña" required />
+                <label for="password">Contraseña</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">
+                Entrar
+            </button>
+
+            <p id="login-error" class="text-danger small text-center mt-3 d-none"></p>
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+<script type="module">
+    import { login } from "./js/auth.js";
+
+    const form = document.getElementById("login-form");
+    const errorText = document.getElementById("login-error");
+
+    form.addEventListener("submit", async e => {
+        e.preventDefault();
+
+        try {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            await login(email, password);
+            window.location.href = "index.html";
+        } catch (err) {
+            errorText.textContent = err.message;
+            errorText.classList.remove("d-none");
+        }
+    });
+</script>

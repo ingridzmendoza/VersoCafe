@@ -129,3 +129,25 @@ h4,
 .text-muted {
     color: var(--brand-muted) !important;
 }
+
+#login-form {
+    border-radius: 0.75rem;
+}
+
+#login-form h3 {
+    letter-spacing: 0.3px;
+}
+.login-bg {
+    background: linear-gradient(135deg, #5b4433, #c6ac9b);
+}
+.btn-primary {
+    background-color: #6f4e37;
+    border-color: #6f4e37;
+}
+.btn-primary:hover {
+    background-color: #5a3f2c;
+    border-color: #5a3f2c;
+}
+.form-control {
+    border-radius: 0.6rem;
+}
