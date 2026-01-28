@@ -5,108 +5,108 @@ export function seedData() {
         const cafes = [
             {
                 id: "cafe-1",
-                name: "Latte Vainilla",
+                name: "Vanilla Latte",
                 price: 65,
                 popularity: 120,
-                image: "coffee.jpg"
+                image: "latte.png"
             },
             {
                 id: "cafe-2",
                 name: "Cappuccino",
                 price: 60,
                 popularity: 95,
-                image: "coffee.jpg"
+                image: "cappuccino.png"
             },
             {
                 id: "cafe-3",
                 name: "Cold Brew",
                 price: 70,
                 popularity: 80,
-                image: "coffee.jpg"
+                image: "coldbrew.png"
             },
             {
                 id: "cafe-4",
                 name: "Americano",
                 price: 45,
                 popularity: 110,
-                image: "coffee.jpg"
+                image: "americano.png"
             },
             {
                 id: "cafe-5",
                 name: "Espresso",
                 price: 40,
                 popularity: 130,
-                image: "coffee.jpg"
+                image: "espresso.png"
             },
             {
                 id: "cafe-6",
-                name: "Latte Caramelo",
+                name: "Caramel Latte",
                 price: 68,
                 popularity: 90,
-                image: "coffee.jpg"
+                image: "latte-caramel.png"
             },
             {
                 id: "cafe-7",
                 name: "Mocha",
                 price: 72,
                 popularity: 85,
-                image: "coffee.jpg"
+                image: "mocha.png"
             },
             {
                 id: "cafe-8",
                 name: "Flat White",
                 price: 62,
                 popularity: 75,
-                image: "coffee.jpg"
+                image: "flat-white.png"
             },
             {
                 id: "cafe-9",
                 name: "Macchiato",
                 price: 55,
                 popularity: 70,
-                image: "coffee.jpg"
+                image: "macchiato.png"
             },
             {
                 id: "cafe-10",
-                name: "Affogato",
+                name: "Chocolate",
                 price: 78,
                 popularity: 65,
-                image: "coffee.jpg"
+                image: "chocolate.png"
             },
             {
                 id: "cafe-11",
-                name: "Café Mocha Blanco",
+                name: "White Mocha",
                 price: 75,
                 popularity: 60,
-                image: "coffee.jpg"
+                image: "white-mocha.png"
             },
             {
                 id: "cafe-12",
-                name: "Irish Coffee",
+                name: "Matcha",
                 price: 85,
                 popularity: 55,
-                image: "coffee.jpg"
+                image: "matcha.png"
             },
             {
                 id: "cafe-13",
-                name: "Honey Latte",
+                name: "Vanilla Cold Brew",
                 price: 70,
                 popularity: 50,
-                image: "coffee.jpg"
+                image: "vanilla-coldbrew.png"
             },
             {
                 id: "cafe-14",
-                name: "Chai Latte",
+                name: "Berry Yogurt Frappuccino",
                 price: 65,
                 popularity: 45,
-                image: "coffee.jpg"
+                image: "berry-yogurt.png"
             },
             {
                 id: "cafe-15",
-                name: "Carajillo",
+                name: "Matcha Frappuccino",
                 price: 80,
                 popularity: 40,
-                image: "coffee.jpg"
+                image: "matcha-frap.png"
             }
         ];
 
