@@ -73,3 +73,13 @@ export function getCurrentUser() {
 export function logout() {
     localStorage.removeItem(SESSION_KEY);
 }
+
+export function updateUser(updatedUser) {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const newUsers = users.map(u =>
+        u.email === updatedUser.email ? updatedUser : u
+    );
+
+    localStorage.setItem("users", JSON.stringify(newUsers));
+}

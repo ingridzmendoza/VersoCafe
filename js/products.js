@@ -1,7 +1,7 @@
+import { isFavorite, toggleFavorite } from "./favorites.js";
 import { getData } from "./storage.js";
 import { getActiveTab } from "./tabs.js";
-/*import { isFavorite, toggleFavorite } from "./favorites.js";
-import { addToCart } from "./cart.js";
+/*import { addToCart } from "./cart.js";
 */
 
 function getAllProducts() {
@@ -23,22 +23,43 @@ function getAllProducts() {
     return [...cafes, ...books];
 }
 
-function sortProducts(products, sortBy) {
-    const sorted = [...products];
+function getFavoritesCountMap() {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    const countMap = {};
 
-    switch (sortBy) {
-        case "price-asc":
-            return sorted.sort((a, b) => a.price - b.price);
+    users.forEach(user => {
+        user.favorites.forEach(productId => {
+            countMap[productId] = (countMap[productId] || 0) + 1;
+        });
+    });
 
-        case "price-desc":
-            return sorted.sort((a, b) => b.price - a.price);
-
-        case "popular":
-        default:
-            return sorted.sort((a, b) => b.popularity - a.popularity);
-    }
+    return countMap;
 }
 
+
+export function sortProducts(list, criteria) {
+    const sorted = [...list];
+
+    switch (criteria) {
+        case "popular":
+            sorted.sort((a, b) => b.popularity - a.popularity);
+            break;
+
+        case "price-asc":
+            sorted.sort((a, b) => a.price - b.price);
+            break;
+
+        case "price-desc":
+            sorted.sort((a, b) => b.price - a.price);
+            break;
+
+        default:
+            sorted.sort((a, b) => b.popularity - a.popularity);
+            break;
+    }
+
+    return sorted;
+}
 
 function filterByTab(products) {
     const activeTab = getActiveTab();
@@ -51,7 +72,6 @@ function filterByTab(products) {
         return products.filter(p => p.type === "book");
     }
 
-    // "all"
     return products;
 }
 
@@ -72,13 +92,16 @@ function createProductCard(product) {
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title">${product.displayName}</h5>
 
-                ${
-                    product.type === "book"
-                        ? `<p class="text-muted small mb-2">${product.author}</p>`
-                        : ""
-                }
+                ${product.type === "book"
+            ? `<p class="text-muted small mb-2">${product.author}</p>`
+            : ""
+        }
 
                 <p class="price mb-2">$${product.price}</p>
+                
+                <small class="text-muted mb-2">
+                    ❤️ ${product.popularity}
+                </small>
 
                 <div class="mt-auto d-flex justify-content-between align-items-center">
                     <button
@@ -89,9 +112,8 @@ function createProductCard(product) {
                     </button>
 
                     <button
-                        class="btn btn-sm ${
-                            favorite ? "btn-danger" : "btn-outline-danger"
-                        } toggle-fav"
+                        class="btn btn-sm ${favorite ? "btn-danger" : "btn-outline-danger"
+        } toggle-fav"
                         data-id="${product.id}"
                     >
                         ♥
@@ -101,52 +123,33 @@ function createProductCard(product) {
         </div>
     `;
 
-    // Eventos
     col.querySelector(".add-cart").addEventListener("click", () => {
         addToCart(product);
     });
 
     col.querySelector(".toggle-fav").addEventListener("click", () => {
         toggleFavorite(product.id);
+        renderProducts();
     });
+
 
     return col;
 }
 
-
-const FAVORITES_KEY = "favorites";
-
-function getFavorites() {
-    return JSON.parse(localStorage.getItem(FAVORITES_KEY)) || [];
-}
-
-function isFavorite(productId) {
-    return getFavorites().includes(productId);
-}
-
-function toggleFavorite(productId) {
-    let favorites = getFavorites();
-
-    if (favorites.includes(productId)) {
-        favorites = favorites.filter(id => id !== productId);
-    } else {
-        favorites.push(productId);
-    }
-
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
-
-    renderCurrent();
-}
-
-
-
 export function renderProducts(sortBy = "popular") {
-    
+
 
     const grid = document.getElementById("products-grid");
     if (!grid) return;
 
-    let products = getAllProducts();
+    const favoritesMap = getFavoritesCountMap();
+
+    let products = getAllProducts().map(product => ({
+        ...product,
+        popularity: favoritesMap[product.id] || 0
+    }));
+
+
     products = filterByTab(products);
     products = sortProducts(products, sortBy);
 

@@ -1,11 +1,9 @@
 import { getCurrentUser, logout } from "./auth.js";
-import { initLanguage } from "./i18n.js";
 import { renderProducts } from "./products.js";
 import { seedData } from "./seed.js";
 import { initTabs } from "./tabs.js";
 import { initTheme } from "./theme.js";
 
-console.log(" app.js is running");
 
 document.addEventListener("DOMContentLoaded", () => {
     const user = getCurrentUser();
@@ -55,5 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     initTheme();
-    initLanguage();
 });

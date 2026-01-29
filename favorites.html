@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login | Verso Café</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="./assets/icons/Favicon.png">
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+
+        <a href="index.html" class="btn btn-outline-secondary mb-3">
+            ← Regresar
+        </a>
+
+        <h2 class="mb-4">Mis favoritos</h2>
+        <div id="favorites-list" class="row g-4"></div>
+    </div>
+
+    <script type="module" src="./js/favorites-page.js"></script>
+    <script type="module">
+        import { initTheme } from "./js/theme.js";
+        initTheme();
+    </script>
+
+</body>
+
+</html>

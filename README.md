@@ -5,6 +5,7 @@ El proyecto está enfocado en la experiencia del usuario y en la simulación de 
 
 Este sitio no procesa pagos reales; su objetivo es simular el funcionamiento de una plataforma de comercio electrónico.
 
+Está hosteada en GitHub Pages: [Verso Cafe](https://ingridzmendoza.github.io/VersoCafe/)
 
 ## Descripción del proyecto
 
