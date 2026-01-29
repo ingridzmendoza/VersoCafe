@@ -14,8 +14,6 @@ Verso Café representa un espacio digital donde los usuarios pueden:
 - Guardar productos en favoritos
 - Simular una compra mediante un carrito
 - Cambiar entre modo claro y modo oscuro
-- Cambiar el idioma de la interfaz (español / inglés)
- 
  
 La interfaz inspirada en un café literario.
 
@@ -48,11 +46,6 @@ La interfaz inspirada en un café literario.
 - **Modo claro / oscuro**
   - Cambio dinámico de tema
   - Preferencia guardada en `localStorage`
-
-- **Cambio de idioma**
-  - Español / Inglés
-  - Textos dinámicos según el idioma seleccionado
-
 
 ## Tecnologías utilizadas
 

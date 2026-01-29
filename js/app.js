@@ -3,6 +3,7 @@ import { renderProducts } from "./products.js";
 import { seedData } from "./seed.js";
 import { initTabs } from "./tabs.js";
 import { initTheme } from "./theme.js";
+import { getCartCount } from "./cart.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -51,6 +52,12 @@ document.addEventListener("DOMContentLoaded", () => {
             renderCurrent(e.target.value);
         });
     }
+
+    const cartCount = document.getElementById("cart-count");
+    if (cartCount) {
+        cartCount.textContent = getCartCount();
+    }
+
 
     initTheme();
 });

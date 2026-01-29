@@ -1,8 +1,8 @@
+import { addToCart, getCartCount } from "./cart.js";
 import { isFavorite, toggleFavorite } from "./favorites.js";
 import { getData } from "./storage.js";
 import { getActiveTab } from "./tabs.js";
-/*import { addToCart } from "./cart.js";
-*/
+
 
 function getAllProducts() {
     const cafesData = getData("cafes") || [];
@@ -125,7 +125,13 @@ function createProductCard(product) {
 
     col.querySelector(".add-cart").addEventListener("click", () => {
         addToCart(product);
+
+        const cartCount = document.getElementById("cart-count");
+        if (cartCount) {
+            cartCount.textContent = getCartCount();
+        }
     });
+
 
     col.querySelector(".toggle-fav").addEventListener("click", () => {
         toggleFavorite(product.id);
